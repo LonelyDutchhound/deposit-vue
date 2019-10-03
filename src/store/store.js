@@ -44,7 +44,7 @@ export default new Vuex.Store({
           case 'year':
             return year;
           default:
-            return year;
+            return weekly;
         }
       },
 

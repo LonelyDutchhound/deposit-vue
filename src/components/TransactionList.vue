@@ -2,17 +2,14 @@
   <div class="transaction-list">
     <p class="transaction-list__title">Детали депозита</p>
     <PeriodSwitcher
-     @getPeriod="getPeriod">
-    </PeriodSwitcher>
+     @getPeriod="getPeriod" />
     <TransactionSummary
       :balance="balance"
-      :totals="totals">
-    </TransactionSummary>
+      :totals="totals" />
     <TransactionCard
       v-for="transaction of transactions"
       :transaction="transaction"
-      :key="transaction.number">
-    </TransactionCard>
+      :key="transaction.number" />
   </div>
 </template>
 

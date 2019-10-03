@@ -2,22 +2,22 @@
   <div class="switcher">
     <div class="switcher__container">
       <div>
-        <input type="radio" class="switcher__input" id="week" name="period" @input="$emit('getPeriod')" checked>
+        <input class="switcher__input" type="radio" id="week" name="period" @input="$emit('getPeriod')" checked>
         <label for="week" class="switcher__btn">Неделя</label>
       </div>
       <div>
-        <input type="radio" class="switcher__input" id="month" name="period" @input="$emit('getPeriod')">
+        <input class="switcher__input" type="radio" id="month" name="period" @input="$emit('getPeriod')">
         <label for="month" class="switcher__btn">Месяц</label>
       </div>
       <div>
-        <input type="radio" class="switcher__input" id="year" name="period" @input="$emit('getPeriod')">
+        <input class="switcher__input" type="radio" id="year" name="period" @input="$emit('getPeriod')">
         <label for="year" class="switcher__btn">Год</label>
       </div>
     </div>
     <div class="switcher__calendar">
       <img src="../assets/switcher-picture.svg">
     </div>
-    <SaveButton></SaveButton>
+    <SaveButton />
   </div>
 </template>
 
