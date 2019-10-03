@@ -2,19 +2,19 @@
   <div class="summary__container">
     <div class="summary__field">
       <p class="summary__fieldname">Входящий остаток</p>
-      <p class="income">{{balance.income}}</p>
+      <p class="income">{{balanceValue.income}}</p>
     </div>
     <div class="summary__field">
       <p class="summary__fieldname">Поступления</p>
-      <p class="credit">{{totals.credit}}</p>
+      <p class="credit">{{totalsValue.credit}}</p>
     </div>
     <div class="summary__field">
       <p class="summary__fieldname">Списания</p>
-      <p class="debit">{{totals.debit}}</p>
+      <p class="debit">{{totalsValue.debit}}</p>
     </div>
     <div class="summary__field">
       <p class="summary__fieldname">Исходящий остаток</p>
-      <p class="outcome">{{balance.outcome}}</p>
+      <p class="outcome">{{balanceValue.outcome}}</p>
     </div>
   </div>
 </template>
@@ -22,7 +22,26 @@
 <script>
 export default {
   name: 'transactionSummary',
-  props:['balance', 'totals']
+  props:['balance', 'totals'],
+  computed:{
+    balanceValue(){
+      const fixedBalance = {};
+      for (let field in this.balance) {
+        fixedBalance[field] = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
+          .format(this.balance[field]);
+        if (this.balance[field] < 0) fixedBalance[field] = `- ${fixedBalance[field].substring(1)}`;
+      }
+      return fixedBalance;
+    },
+    totalsValue(){
+      const fixedTotals = {};
+      fixedTotals.debit = `- ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
+        .format(this.totals.debit)}`;
+      fixedTotals.credit = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
+        .format(this.totals.credit);
+      return fixedTotals;
+    }
+  }
 }
 </script>
 

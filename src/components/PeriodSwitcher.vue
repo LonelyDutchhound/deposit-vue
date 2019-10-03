@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import SaveButton from './saveButton'
+  import SaveButton from './SaveButton'
 
   export default {
     name: 'PeriodSwitcher',

@@ -14,7 +14,7 @@
         <span>{{transaction.appointment}}</span>
       </div>
       <div class="card__field summ">
-        <span>{{transaction.value}}</span>
+        <span>{{value}}</span>
       </div>
     </div>
   </div>
@@ -23,7 +23,19 @@
 <script>
   export default {
     name: 'transactionList',
-    props:['transaction']
+    props:['transaction'],
+    computed: {
+      value (){
+          if (this.transaction.debit) {
+            return `- ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
+              .format(this.transaction.debit)}`;
+          } else {
+            return new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
+              .format(this.transaction.credit);
+          }
+      },
+
+    }
   }
 </script>
 

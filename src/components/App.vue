@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TransactionList from './transactionList'
+import TransactionList from './TransactionList'
 
 export default {
   name: 'app',

@@ -81,36 +81,5 @@ export default new Vuex.Store({
       updateBalance(state, balance){
         state.balance = balance;
       }
-    },
-    getters: {
-      getTransactions(state){
-        return  state.transactions.map( transaction => {
-          if (transaction.debit) {
-            transaction.value = `- ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
-                                  .format(transaction.debit)}`;
-          } else {
-            transaction.value = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
-                                  .format(transaction.credit);
-          }
-          return transaction;
-          })
-      },
-      getTotals(state){
-        const fixedTotals = {};
-          fixedTotals.debit = `- ${new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
-                                .format(state.totals.debit)}`;
-          fixedTotals.credit = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
-                                .format(state.totals.credit);
-        return fixedTotals;
-      },
-      getBalance(state){
-        const fixedBalance = {};
-        for (let field in state.balance) {
-          fixedBalance[field] = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' })
-            .format(state.balance[field]);
-          if (state.balance[field] < 0) fixedBalance[field] = `- ${fixedBalance[field].substring(1)}`;
-        }
-        return fixedBalance;
-      }
     }
 });

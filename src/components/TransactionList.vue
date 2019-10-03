@@ -5,11 +5,11 @@
      @getPeriod="getPeriod">
     </PeriodSwitcher>
     <TransactionSummary
-      :balance="getBalance"
-      :totals="getTotals">
+      :balance="balance"
+      :totals="totals">
     </TransactionSummary>
     <TransactionCard
-      v-for="transaction of getTransactions"
+      v-for="transaction of transactions"
       :transaction="transaction"
       :key="transaction.number">
     </TransactionCard>
@@ -17,10 +17,10 @@
 </template>
 
 <script>
-  import {mapGetters, mapActions} from 'vuex'
-  import TransactionCard from './transactionCard'
-  import TransactionSummary from './transactionSummary'
-  import PeriodSwitcher from './periodSwitcher'
+  import {mapState, mapActions} from 'vuex'
+  import TransactionCard from './TransactionCard'
+  import TransactionSummary from './TransactionSummary'
+  import PeriodSwitcher from './PeriodSwitcher'
 
   export default {
     name: 'transactionList',
@@ -40,7 +40,7 @@
       }
     },
     computed: {
-      ...mapGetters(['getTotals','getBalance', 'getTransactions']),
+      ...mapState(['totals','balance', 'transactions']),
     },
     methods: {
       ...mapActions(['getPeriodTransactions','setPath']),

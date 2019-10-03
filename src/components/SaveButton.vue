@@ -14,14 +14,14 @@
 </script>
 
 <style>
-  .btn__container{
+  .save-btn__container{
     width: 18vw;
     min-width: 200px;
     display: flex;
     justify-content: center;
     padding: 10px;
   }
-  .save__btn{
+  .save-btn__btn{
     width: 100%;
     height: 50px;
     display: flex;
