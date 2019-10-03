@@ -1,6 +1,6 @@
 <template>
-  <div class="card__container">
-    <div class="card">
+  <div class="card">
+    <div class="card__container">
       <div class="card__field number">
         <span>{{transaction.number}}</span>
       </div>
@@ -28,14 +28,14 @@
 </script>
 
 <style>
-  .card__container{
+  .card{
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 10px;
   }
-  .card{
+  .card__container{
     width: 96%;
     display: flex;
     flex-flow: row wrap;

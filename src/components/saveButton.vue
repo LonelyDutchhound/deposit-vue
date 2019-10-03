@@ -1,6 +1,6 @@
 <template>
-  <div class="btn__container">
-    <button class="save__btn">
+  <div class="save-btn__container">
+    <button class="save-btn__btn">
       <span>Сохранить выписку</span>
       <img src="../assets/save-btn.svg" alt="№">
     </button>

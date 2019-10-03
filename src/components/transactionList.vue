@@ -1,5 +1,6 @@
 <template>
-  <div class="wrapper">
+  <div class="transaction-list">
+    <p class="transaction-list__title">Детали депозита</p>
     <PeriodSwitcher
      @getPeriod="getPeriod">
     </PeriodSwitcher>
@@ -54,9 +55,18 @@
 </script>
 
 <style>
-  .wrapper{
+  .transaction-list{
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .transaction-list__title{
+    text-align: center;
+    padding: 30px 0 10px;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 14px;
+    letter-spacing: 0.8px;
+    color: #1b243c;
   }
 </style>

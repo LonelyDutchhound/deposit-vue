@@ -1,6 +1,6 @@
 <template>
-  <div class="switcher__container">
-    <div class="switcher">
+  <div class="switcher">
+    <div class="switcher__container">
       <div>
         <input type="radio" class="switcher__input" id="week" name="period" @input="$emit('getPeriod')" checked>
         <label for="week" class="switcher__btn">Неделя</label>
@@ -33,7 +33,7 @@
 </script>
 
 <style>
-  .switcher__container{
+  .switcher{
     width: 100%;
     display: flex;
     flex-flow: column;
@@ -41,7 +41,7 @@
     align-items: center;
     padding: 2%;
   }
-  .switcher{
+  .switcher__container{
     width: 300px;
     height: 50px;
     display: flex;
